@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import Footer from "./components/Footer/Footer";
+import NavInshorts from "./components/NavInshorts";
+import NewsContent from "./components/NewsContent/NewsContent";
 
 function App() {
+  const [category, setCategory] = useState("general");
+  const [newsArray, setNewsArray] = useState([]);
+  const [newsResults, setNewsResults] = useState();
+  const [loadMore, setLoadMore] = useState(14);
+  const apiKey = process.env.REACT_APP_NEWS_API;
+
+  const newsApi = async () => {
+    try {
+      await axios
+        .get(
+          `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}`
+          // `https://newsapi.org/v2/top-headlines/category=${category}&apiKey=${apiKey}/in.json`
+        )
+        .then((res) => {
+          setNewsArray(res.data.articles);
+          setNewsResults(res.data.totalResults);
+        });
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
+  useEffect(() => {
+    newsApi();
+    // eslint-disable-next-line
+  }, [newsResults, category, loadMore]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavInshorts setCategory={setCategory} setLoadMore={setLoadMore} />
+      {newsResults && (
+        <NewsContent
+          newsArray={newsArray}
+          newsResults={newsResults}
+          loadMore={loadMore}
+          setLoadMore={setLoadMore}
+        />
+      )}
+      <Footer />
     </div>
   );
 }
