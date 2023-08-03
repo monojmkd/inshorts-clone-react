@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/inshorts-clone-react/static/css/main.713ccfca.css",
-    "main.js": "/inshorts-clone-react/static/js/main.81cc16f9.js",
+    "main.js": "/inshorts-clone-react/static/js/main.2c0c9242.js",
     "index.html": "/inshorts-clone-react/index.html",
     "main.713ccfca.css.map": "/inshorts-clone-react/static/css/main.713ccfca.css.map",
-    "main.81cc16f9.js.map": "/inshorts-clone-react/static/js/main.81cc16f9.js.map"
+    "main.2c0c9242.js.map": "/inshorts-clone-react/static/js/main.2c0c9242.js.map"
   },
   "entrypoints": [
     "static/css/main.713ccfca.css",
-    "static/js/main.81cc16f9.js"
+    "static/js/main.2c0c9242.js"
   ]
 }
