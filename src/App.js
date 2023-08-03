@@ -10,17 +10,22 @@ function App() {
   const [newsArray, setNewsArray] = useState([]);
   const [newsResults, setNewsResults] = useState();
   const [loadMore, setLoadMore] = useState(14);
-  // const apiKey = process.env.REACT_APP_NEWS_API;
+  const apiKey = process.env.REACT_APP_NEWS_API;
+// const yourkey = process.env.NEWS_CATCHER_API;
+
 
   const newsApi = async () => {
     try {
       await axios
         .get(
-          `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=2e3b57db492d43d89d6a06564e789829`
+          `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}`
+          
+          // `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=2e3b57db492d43d89d6a06564e789829`
           // `https://newsapi.org/v2/top-headlines/category=${category}&apiKey=${apiKey}/in.json`
         )
         .then((res) => {
           setNewsArray(res.data.articles);
+          console.log(res.data.articles)
           setNewsResults(res.data.totalResults);
         });
     } catch (error) {

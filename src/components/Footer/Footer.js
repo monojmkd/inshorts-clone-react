@@ -9,19 +9,19 @@ const Footer = () => {
     <div className="footer">
       <span className="name">
         Inshorts clone made by -{" "}
-        <a href="http://www.linkedin.com/in/krishnaprasadek" target="__blank">
-          Krishnaprasad E K
+        <a href="http://www.linkedin.com/in/" target="__blank">
+         Monoj Kumar Das
         </a>
       </span>
       <hr style={{ width: "90%" }} />
       <div className="iconContainer">
-        <a href="https://www.instagram.com/_krrish_na_38" target="__blank">
+        <a href="https://www.instagram.com/" target="__blank">
           <InstagramIcon fontSize="large" />
         </a>
-        <a href="http://www.linkedin.com/in/krishnaprasadek" target="__blank">
+        <a href="http://www.linkedin.com/in/" target="__blank">
           <LinkedInIcon fontSize="large" />
         </a>
-        <a href="https://krishnaprasadek.github.io/ws/" target="__blank">
+        <a href="https://github.com/monojmkd" target="__blank">
           <LinkIcon fontSize="large" />
         </a>
       </div>
