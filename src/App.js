@@ -19,9 +19,6 @@ function App() {
       await axios
         .get(
           `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}`
-          
-          // `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=2e3b57db492d43d89d6a06564e789829`
-          // `https://newsapi.org/v2/top-headlines/category=${category}&apiKey=${apiKey}/in.json`
         )
         .then((res) => {
           setNewsArray(res.data.articles);
